@@ -23,6 +23,7 @@ function renderdom(data){
     let div=document.querySelector("#pagination");
     div.innerHTML=datahtml(data).join("")
 }
+
 function datahtml(data){
     let newdata=data.map(function(ele,index){
         return `<div id="${ele.Product_id}">
