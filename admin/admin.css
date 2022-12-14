@@ -21,3 +21,40 @@
     border: none;
     border-radius: 30px;
 }
+
+/*......pagination....... */
+
+#pagination{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 10px;
+    grid-auto-rows: 1fr;
+    margin: 8px;
+}
+#pagination>div{
+   border-radius: 10px;
+    /* border: solid 3px black; */
+    box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+    
+}
+
+#pagination>div>img{
+    width:100%;
+}
+#pagination>div>h3,p,h4{
+    padding-left: 20px
+}
+#pagination>div>button{
+margin: auto;
+margin-left: 10px;
+margin-bottom: 10px; 
+width: 60px;
+height: 30px;
+border-radius: 10px;
+
+}
+#pagination>div>button:hover{
+    background-color:rgb(209, 95, 95);
+    color: white;
+    border: none;
+}
