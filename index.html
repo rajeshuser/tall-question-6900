@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Khao Piyo Chicken</title>
+	<link rel="stylesheet" href="index.css">
+</head>
+
+<!-- 
+home issues:
+
+navigation-bar: fixed position
+user-address-bar:
+user-order-type:
+slide-show:
+user-greetings:
+browse-categories: each link to menu page
+offers-and-deals: each links to deals page
+footer: link to various pages 
+-->
+
+<body>
+	<div id="nav-bar">
+		<div class="logo">
+			<a href="index.html"><img src="resources/logo.png" alt="logo"></a>
+		</div>
+		<h1>KPC</h1>
+		<button id="hamburger">
+			<img src="resources/hamburger.png" alt="hamburger">
+		</button>
+		<ul id="nav-options">
+			<li><a href="menu/menu.html">Menu</a></li>
+			<li><a href="deals/deals.html">Deals</a></li>
+			<li><a href="account/account.html">Account</a></li>
+			<li><a href="cart/cart.html">Cart</a></li>
+		</ul>
+	</div>
+
+	<div id="main">
+		<div id="order-settings">
+			<div>
+				<p>Select your order details</p>
+				<button>Set order</button>
+			</div>
+
+			<div>
+				<h2>Select your order type</h2>
+				<div id="order-types">
+					<button>Delivery</button>
+					<button>Pickup</button>
+					<button>Dine In</button>
+				</div>
+			</div>
+		</div>
+
+		<div id="slide-show">
+			<img src="" alt="slide">
+			<div id="slide-buttons">
+				<button>&leftleftarrows;</button>
+				<button>&rightrightarrows;</button>
+			</div>
+		</div>
+
+		<h1 id="greetings">Welcome to KPC!</h1>
+
+		<div id="browse-categories">
+			<h1>Browse categories</h1>
+			<div id="categories-cards">
+				<div><img src="resources/categoriesImages/category1.jpg" alt=""><h3><a href="menu/menu.html">Chicken Buckets</a></h3></div>
+				<div><img src="resources/categoriesImages/category2.jpg" alt=""><h3><a href="menu/menu.html">Exclusive deals</a></h3></div>
+				<div><img src="resources/categoriesImages/category3.jpg" alt=""><h3><a href="menu/menu.html">New Launch</a></h3></div>
+				<div><img src="resources/categoriesImages/category4.jpg" alt=""><h3><a href="menu/menu.html">Biryani Buckets</a></h3></div>
+				<div><img src="resources/categoriesImages/category5.jpg" alt=""><h3><a href="menu/menu.html">Box Meals</a></h3></div>
+				<div><img src="resources/categoriesImages/category6.jpg" alt=""><h3><a href="menu/menu.html">Burgers</a></h3></div>
+				<div><img src="resources/categoriesImages/category7.jpg" alt=""><h3><a href="menu/menu.html">Snacks</a></h2></div>
+				<div><img src="resources/categoriesImages/category8.svg" alt=""><h3><a href="menu/menu.html">View all menu &rArr;</a></h3></div>
+			</div>
+		</div>
+
+		<div id="deals">
+			<h1>Offers & Deals</h1>
+
+			<div id="deals-cards">
+				<div>
+					<img src="resources/offersImages/offer1.jpg" alt="offer">
+					<div>
+						<h2>ADD 2 PC HOT N CRISPY CHICKEN</h2>
+						<p></p>
+						<div id="buttons">
+							<button>View Details</button>
+							<button>Redeem</button>
+						</div>
+					</div>
+				</div>
+
+				<div>
+					<img src="resources/offersImages/offer2.jpg" alt="offer">
+					<div>
+						<h2>ADD 2 PC HOT N CRISPY CHICKEN</h2>
+						<p></p>
+						<div id="buttons">
+							<button>View Details</button>
+							<button>Redeem</button>
+						</div>
+					</div>
+				</div>
+
+				<div>
+					<img src="resources/offersImages/offer3.jpg" alt="offer">
+					<div>
+						<h2>ADD 2 PC HOT N CRISPY CHICKEN</h2>
+						<p></p>
+						<div id="buttons">
+							<button>View Details</button>
+							<button>Redeem</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="footer">
+			<div class="logo">
+				<a href="home.html"><img src="resources/logo.png" alt="logo"></a>
+			</div>
+
+			<ul>
+				KPC Food
+				<li>Menu</li>
+				<li>Order Lookup</li>
+				<li>Gift Card</li>
+				<li>Privacy Policy</li>
+			</ul>
+
+			<ul>
+				Support
+				<li>Get Help</li>
+				<li>Contact Us</li>
+				<li>KPC Feedback</li>
+				<li>Nutrition & Allergen</li>
+			</ul>
+
+			<ul>
+				Legal
+				<li>Terms and Conditions</li>
+				<li>Privacy Policy</li>
+				<li>Disclaimer</li>
+				<li>Caution Notice</li>
+			</ul>
+
+			<ul>
+				KPC India
+				<li>About KFC</li>
+				<li>KFC Care</li>
+				<li>Careers</li>
+				<li>Our Golden Past</li>
+			</ul>
+
+			<div id="find-kpc">
+				Find KPC
+			</div>
+
+			<div id="app-stores">
+				<a href="https://play.google.com"><img src="resources/socialMediaLogos/google_play.svg" alt="googlePlay"></a>
+				<a href="https://www.apple.com"><img src="resources/socialMediaLogos/apple.svg" alt="appStore"></a>
+			</div>
+
+			<p id="copyright">Copyright © KPC Corporation 2021 All Rights Reserved</p>
+
+			<div id="media-links">
+				<a href="https://www.instagram.com"><img src="resources/socialMediaLogos/Social_Insta_White.svg" alt="instagram"></a>
+				<a href="https://www.facebook.com"><img src="resources/socialMediaLogos/Social_Facebook_White.svg" alt="facebook"></a>
+				<a href="https://www.twitter.com"><img src="resources/socialMediaLogos/Social_Twitter_White.svg" alt="twitter"></a>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+
+<script src="index.js"></script>
