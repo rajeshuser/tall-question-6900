@@ -1,11 +1,18 @@
-* {
-	/* border: 1px solid black; */
-}
+/* * {
+	border: 1px solid black;
+} */
+
+
 
 body {
 	margin-left: 0;
 	margin-right: 0;
 	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+@media screen and (max-width: 500px) {
+	h1, h2, h3, li {
+		font-size: 5vw;
+	}
 }
 
 
@@ -16,7 +23,7 @@ body {
 	margin: auto;
 }
 .logo {
-	width: 10vh;
+	width: 15vh;
 }
 .logo > a > img {
 	width: 100%;
@@ -32,6 +39,7 @@ body {
 	justify-content: center;
 	align-items: center;
 	font-size: 130%;
+	padding: 5px 15px;
 	font-weight: bolder;
 }
 #nav-options a {
@@ -39,13 +47,15 @@ body {
 	text-decoration: none;
 }
 #nav-options > li:hover {
-	font-size: 200%;
-	transition: font-size 0.3s;
+	border-radius: 100px;
+	background-color: rgb(235, 232, 232);
+	transition: background-color 0.5s;
 }
 #nav-options > :nth-child(2) {
 	/* for gap between menu,deals and account,cart */
 	margin-right: 50%;
 }
+
 
 
 /* all responsive related styles */
@@ -96,6 +106,56 @@ body {
 
 
 
+#order-settings-modal {
+	display: none;
+}
+.toggle-order-settings-modal {
+	display: block !important;
+	background-color: rgba(0, 0, 0, 0.5);
+	margin: 0;
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	z-index: 2;
+}
+#order-settings-modal-content {
+	margin: 10vh auto;
+	width: 50%;
+	padding: 1vw 3vw 3vw;
+	background-color: white;
+	text-align: center;
+} 
+#order-settings-modal-content > form {
+	display: flex;
+	width: 70%;
+	margin: auto;
+	flex-direction: column;
+}
+#order-settings-modal-content > form > label {
+	margin-top: 20px;
+	height: 5vh;
+	text-align: left;
+}
+#order-settings-modal-content > form > select, #order-settings-modal-content > form > input {
+	height: 6vh;
+}
+#order-settings-modal-content > form > input[type="submit"] {
+	align-self: center;
+	margin-top: 20px;
+	background-color: black;
+	color: white;
+	border-radius: 100px;
+	font-size: large;
+	padding-left: 5%;
+	padding-right: 5%;
+}
+#order-settings-modal-content > form > input[type="submit"]:hover {
+	cursor: pointer;
+}
+
+
+
 #order-settings > :nth-child(1) {
 	display: flex;
 	justify-content:center;
@@ -112,7 +172,6 @@ body {
 	padding: 1%;
 	color: white;
 	background-color: rgb(252, 65, 65);
-
 }
 #order-settings > :nth-child(2) {
 	text-align: center;
@@ -134,21 +193,30 @@ body {
 	background-color: rgba(0, 0, 0, 0);
 }
 #order-types > button:hover {
-	background-color: rgb(253, 89, 89);
 	color: white;
+	background-color: rgb(253, 89, 89);
+	transition: background-color 0.5s;
+}
+.selected-order-type {
+	color: white;
+	background-color: rgb(253, 89, 89) !important;
 }
 @media screen and (max-width: 900px) {
 	#order-types {
 		flex-direction: column;
 		align-items: center;
-		width: fit-content;
+		width: 100%;
 		margin: auto;
 	}
 	#order-types > button {
-		width: 10vw;
+		width: 100%;
 		margin: 5px auto;
 	}
+	#order-settings > :nth-child(2) > h2 {
+		font-size: 5vw;
+	}
 }
+
 
 
 #slide-show {
@@ -234,6 +302,7 @@ body {
 	justify-content: space-between;
 	text-align: center;
 	flex-wrap: wrap;
+	gap: 1vw;
 }
 #deals-cards > div {
 	width: 30%;
@@ -254,16 +323,57 @@ body {
 	display: flex;
 	justify-content: space-between;
 }
-#deals-cards #buttons > button {
-	padding: 7px;
+#deals-cards #buttons > button:nth-child(1) {
+	border: 0;
+	width: 50%;
+	background-color: rgba(0, 0, 0, 0);
+}
+#deals-cards #buttons > button:nth-child(1) > a {
+	color: black;
+}
+#deals-cards #buttons > button:nth-child(2) {
+	padding: 10px;
+	width: 50%;
 	border: 1px solid black;
 	border-radius: 100px;
 	background-color: rgba(0, 0, 0, 0);
 }
+#deals-cards #buttons > button:nth-child(2):hover {
+	background-color: black;
+	color: white;
+}
 /* all responsive related styles */
 @media screen and (max-width: 900px) {
-	
+	#deals-cards {
+		justify-content: center;
+	}
 }
+
+
+
+#redeem-feedback-modal {
+	display: none;
+}
+#redeem-feedback-modal-content {
+	width: 30%;
+	margin: 30vh auto;
+	text-align: center;
+	background-color: white;
+	padding: 20px;
+	border-radius: 20px;
+}
+.toggle-redeem-feedback-modal {
+	display: block !important;
+	background-color: rgba(0, 0, 0, 0.5);
+	position: fixed;
+	z-index: 2;
+	margin: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+}
+
+
 
 #footer {
 	display: flex;

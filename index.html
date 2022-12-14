@@ -8,20 +8,26 @@
 	<link rel="stylesheet" href="index.css">
 </head>
 
-<!-- 
-home issues:
-
-navigation-bar: fixed position
-user-address-bar:
-user-order-type:
-slide-show:
-user-greetings:
-browse-categories: each link to menu page
-offers-and-deals: each links to deals page
-footer: link to various pages 
--->
-
 <body>
+	<div id="order-settings-modal">
+		<div id="order-settings-modal-content">
+			<h1>Order Settings</h1>
+			<form action="">
+				<label for="order-type">Order type</label>
+				<select name="order-type" id="order-type" name="orderType">
+					<option value="Delivery">Delivery</option>
+					<option value="Pick up">Pick up</option>
+					<option value="Dine in">Dine in</option>
+				</select>
+				<label for="delivery-address">Delivery address</label>
+				<input type="text" id="delivery-address" name="deliveryAddress">
+				<label for="delivery-time">Delivery time</label>
+				<input type="date" id="delivery-time" name="deliveryTime">
+				<input type="submit" value="Confirm">
+			</form>
+		</div>
+	</div>
+
 	<div id="nav-bar">
 		<div class="logo">
 			<a href="index.html"><img src="resources/logo.png" alt="logo"></a>
@@ -46,11 +52,11 @@ footer: link to various pages
 			</div>
 
 			<div>
-				<h2>Select your order type</h2>
+				<h3>Select your order type</h3>
 				<div id="order-types">
-					<button>Delivery</button>
-					<button>Pickup</button>
-					<button>Dine In</button>
+					<button value="Delivery">Delivery</button>
+					<button value="Pick up">Pick up</button>
+					<button value="Dine in">Dine in</button>
 				</div>
 			</div>
 		</div>
@@ -89,8 +95,8 @@ footer: link to various pages
 						<h2>ADD 2 PC HOT N CRISPY CHICKEN</h2>
 						<p></p>
 						<div id="buttons">
-							<button>View Details</button>
-							<button>Redeem</button>
+							<button><a href="deals/deals.html">View Details</a></button>
+							<button class="redeem-button"  data-offerid="1">Redeem</button>
 						</div>
 					</div>
 				</div>
@@ -101,8 +107,8 @@ footer: link to various pages
 						<h2>ADD 2 PC HOT N CRISPY CHICKEN</h2>
 						<p></p>
 						<div id="buttons">
-							<button>View Details</button>
-							<button>Redeem</button>
+							<button><a href="deals/deals.html">View Details</a></button>
+							<button class="redeem-button"  data-offerid="2">Redeem</button>
 						</div>
 					</div>
 				</div>
@@ -113,11 +119,18 @@ footer: link to various pages
 						<h2>ADD 2 PC HOT N CRISPY CHICKEN</h2>
 						<p></p>
 						<div id="buttons">
-							<button>View Details</button>
-							<button>Redeem</button>
+							<button><a href="deals/deals.html">View Details</a></button>
+							<button class="redeem-button" data-offerid="3">Redeem</button>
 						</div>
 					</div>
 				</div>
+			</div>
+		</div>
+
+		<div id="redeem-feedback-modal">
+			<div id="redeem-feedback-modal-content">
+				<h2>Congratulations!!</h2>
+				<h3>You got a new coupon</h3>
 			</div>
 		</div>
 
