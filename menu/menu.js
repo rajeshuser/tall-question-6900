@@ -1,10 +1,9 @@
 let url ="https://639883a4fe03352a94d3d897.mockapi.io/product/kpc"
-let bag = []
+let items = []
 fetch(url)
     .then((res) => res.json())
     .then((data) => {
-        bag = data
-     
+        items = data
         displaycard(data)
     })
 
@@ -19,7 +18,8 @@ function displaycard(arr) {
     document.querySelector(".menu").innerHTML = ""
     arr.forEach((element) => {
         let div = document.createElement("div")
-
+        let div2=document.createElement("div")
+        let Div=document.createElement("div")
         let Img = document.createElement("img")
         Img.setAttribute("src", element.image)
         let title = document.createElement("h3")
@@ -33,11 +33,13 @@ function displaycard(arr) {
         let btn = document.createElement("button")
         btn.innerText = "Add to Cart+"
         btn.addEventListener("click",()=>{
-            addData("cart",element)
+            addData("cart",element.Product_id)
         })
 
-        div.append(Img, title, Price,desc, btn)
-        document.querySelector('.menu').append(div)
+        div.append(Img)
+        div2.append(title, Price,desc, btn)
+        Div.append(div,div2)
+        document.querySelector('.menu').append(Div)
       
     });
 }

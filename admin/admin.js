@@ -11,6 +11,7 @@ button.addEventListener("submit",((event)=>{
     
     if(uname==="admin" && upassword==="admin"){
         alert("login successful")
+        window.location.href="dashboard.html"
     }else{
         alert("error check you username & password")
     }
