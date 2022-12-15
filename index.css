@@ -156,24 +156,7 @@ body {
 
 
 
-#order-settings > :nth-child(1) {
-	display: flex;
-	justify-content:center;
-	align-items: center;
-	background-color: rgb(11, 19, 43);
-	color: white;
-}
-#order-settings > :nth-child(1) > p {
-	margin-right: 3%;
-}
-#order-settings > :nth-child(1) > button {
-	border-radius: 100px;
-	border: 0;
-	padding: 1%;
-	color: white;
-	background-color: rgb(252, 65, 65);
-}
-#order-settings > :nth-child(2) {
+#order-settings2 {
 	text-align: center;
 	margin: 3% auto;
 	width: 30%;
@@ -212,7 +195,7 @@ body {
 		width: 100%;
 		margin: 5px auto;
 	}
-	#order-settings > :nth-child(2) > h2 {
+	#order-settings2 > h2 {
 		font-size: 5vw;
 	}
 }
