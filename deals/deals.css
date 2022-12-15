@@ -1,11 +1,59 @@
+body {
+	margin-left: 0;
+	margin-right: 0;
+	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+#nav-bar {
+	display: flex;
+	width: 80%;
+	margin: auto;
+}
+.logo {
+	width: 10vh;
+}
+.logo > a > img {
+	width: 100%;
+}
+#nav-options {
+	display: flex;
+	width: 100%;
+	list-style: none;
+	justify-content: space-around;
+}
+#nav-options > li {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 130%;
+	font-weight: bolder;
+}
+#nav-options a {
+	color: black;
+	text-decoration: none;
+}
+#nav-options > li:hover {
+	font-size: 200%;
+	transition: font-size 0.3s;
+}
+#nav-options > :nth-child(2) {
+	/* for gap between menu,deals and account,cart */
+	margin-right: 50%;
+}
+
+
+/* all responsive related styles */
+#nav-bar > h1 {
+	display: none;
+}
+#hamburger {
+	display: none;
+}
 p{
     font-family: 'Roboto Condensed', sans-serif;
     font-size: 13px;
 }
-#navbar{
-    border: 1px solid black;
-height: 100px;
-}
+
 #Location{
     height: 40px;
     color: white;
