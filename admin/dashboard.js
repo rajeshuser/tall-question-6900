@@ -1,13 +1,46 @@
 let procucturl="https://639883a4fe03352a94d3d897.mockapi.io/product/kpc";
 let userurl="https://639883a4fe03352a94d3d897.mockapi.io/product/kpc_user";
+let count=0;
 async function product(){
     try {
-        let res=await fetch(procucturl);
-        let data=await res.json();
-        renderdom(data)
+        let res =await fetch(procucturl);
+        let data =await res.json();
+        // console.log(res)
+        pagination_button(data.length)
     } catch (error) {
         console.log(error)
     }
+}
+function pagination_button(count){
+    let totalNumberOfButtons = Math.ceil(count/ 10);
+    console.log(count)
+    function asListOfButtons() {
+        let arr = [];
+        for (let i = 1; i<=totalNumberOfButtons; i++) {
+          arr.push(`<button class="pagination" id = ${i} > ${i} </button>`);
+        }
+        console.log(arr)
+        return arr.join('');
+}
+// console.log(asListOfButtons())
+let pages=document.querySelector("#pages");
+pages.innerHTML=asListOfButtons();
+
+
+let paginationButtons = document.querySelectorAll('.pagination');
+// console.log(typeof(paginationButtons),"1234")
+  for (let paginationButton of paginationButtons) {
+    paginationButton.addEventListener('click', function(e){
+      let dataId = e.target.id;
+      console.log(dataId)
+      fetch(procucturl+`?p=${dataId}&l=10`)
+      .then(res=>res.json())
+      .then(data=>renderdom(data));
+    })
+}
+
+
+
 }
 async function user(){
     try {
@@ -30,12 +63,17 @@ function datahtml(data){
         <img src="${ele.image}" alt="">
         <h3>${ele.Title}</h3>
         <p>${ele.description}</p>
-        <h3>${ele.price}</h3>
-        <h4>${ele.offer}</h4>
+        <h3>Price: ${ele.price}</h3>
+        <h4>Offre: ${ele.offer}%</h4>
         <button>Edit</button>
         <button>Delete</button>
     </div>`
     });
     return newdata
+    
+}
+
+
+function add_product(){
     
 }
