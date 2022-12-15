@@ -20,23 +20,20 @@ const slideShowImages = [
 const slideButtonLeft = document.querySelector("#slide-buttons :nth-child(1)");
 const slideButtonRight = document.querySelector("#slide-buttons :nth-child(2)");
 const slideElement = document.querySelector("#slide-show>img");
-const hamburgerElement = document.querySelector("#hamburger");
-const navOptionsElement = document.querySelector("#nav-options");
 const greetingsElement = document.querySelector("#greetings");
-const orderSettingElement = document.querySelector("#order-settings > :nth-child(1) > button");
-const orderSettingsModal =document.querySelector("#order-settings-modal");
 const orderTypeElements = document.querySelectorAll("#order-types > button");
 const redeemElements = document.querySelectorAll(".redeem-button");
-const orderSettingsFormElement = document.querySelector("#order-settings-modal-content > form");
-const addressElement = document.querySelector("#order-settings > :nth-child(1) > p");
 const redeemFeedbackModal = document.querySelector("#redeem-feedback-modal");
 
 let slideIndex = 0;
 
 startSlideShow();
 updateGreetings();
+
+/*
 updateOrderType();
 updateAddressBar();
+*/
 
 // all addEventListner() are below
 
@@ -50,11 +47,13 @@ slideButtonLeft.addEventListener("click", (event) => {
 
 slideButtonRight.addEventListener("click", showSlide);
  
+/*
 hamburgerElement.addEventListener("click", (event) => {
 	navOptionsElement.classList.toggle("toggle-display");
 });
 
 orderSettingElement.addEventListener("click", toggleOrderSettingsModal);
+*/
 
 orderTypeElements.forEach((item) => item.addEventListener("click", (event) => {
 	let orderType = event.target.value;
@@ -98,6 +97,7 @@ redeemElements.forEach((item) => item.addEventListener("click", (event) => {
 	toggleRedeemFeedbackModal();
 }));
 
+/*
 orderSettingsFormElement.addEventListener("submit", function(event) {
 	event.preventDefault();
 	let orderSettings = {
@@ -117,6 +117,7 @@ orderSettingsFormElement.addEventListener("submit", function(event) {
 	updateAddressBar();
 	event.target.reset();
 });
+*/
 
 
 // all functions are below
@@ -135,9 +136,11 @@ function showSlide() {
 	slideElement.src = slideShowImages[slideIndex];
 }
 
+/*
 function toggleOrderSettingsModal(event) {
 	orderSettingsModal.classList.toggle("toggle-order-settings-modal");
 }
+*/
 
 function toggleRedeemFeedbackModal(event) {
 	console.log("hello")
@@ -159,14 +162,17 @@ function updateOrderType() {
 	}
 }
 
+/*
 function updateAddressBar() {
 	let orderSettings = JSON.parse(localStorage.getItem("orderSettings"));
 	addressElement.innerText = orderSettings.address || "Select your order details";
 	console.dir(addressElement)
 }
+*/
 
 // onclick events are handled below
 
+/*
 orderSettingsModal.onclick = function(event) {
 	// onclick is fired when the mouse is clicked inside the box and it do not care about its exposure
 	// event.target checks the topmost element on which the mouse is clicked
@@ -174,6 +180,7 @@ orderSettingsModal.onclick = function(event) {
 		toggleOrderSettingsModal();
 	}
 };
+*/
 
 redeemFeedbackModal.onclick = function(event) { 
 	if(event.target===redeemFeedbackModal) {
