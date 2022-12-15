@@ -1,3 +1,104 @@
+#nav-bar {
+	display: flex;
+	/* width: 80%; */
+	margin: auto;
+    /* border: solid 1px; */
+	
+}
+#nav-options>li>button{
+	padding: 10px;
+	border-radius: 10px;
+	border: none;
+	background-color: rgb(240, 115, 115);
+	size: 20px;
+}
+#nav-options>li>button:hover{
+	
+}
+.logo {
+	width: 15vh;
+}
+.logo > a > img {
+	width: 100%;
+}
+#nav-options {
+	display: flex;
+	width: 100%;
+	list-style: none;
+	justify-content: space-around;
+}
+#nav-options > li {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 130%;
+	padding: 5px 15px;
+	font-weight: bolder;
+}
+#nav-options a {
+	color: black;
+	text-decoration: none;
+}
+#nav-options > li:hover {
+	border-radius: 100px;
+	background-color: rgb(235, 232, 232);
+	transition: background-color 0.5s;
+}
+#nav-options > :nth-child(2) {
+	/* for gap between menu,deals and account,cart */
+	margin-right: 50%;
+}
+
+
+
+/* all responsive related styles */
+#nav-bar > h1 {
+	display: none;
+}
+#hamburger {
+	display: none;
+}
+.toggle-display {
+	/* to toggle display of #nav-options */
+	display: block !important;
+}
+@media screen and (max-width: 900px) {
+	#nav-options {
+		display: none;
+	}
+	#nav-options > :nth-child(2) {
+		/* for gap between menu,deals and account,cart */
+		margin: auto;
+	}
+	#hamburger {
+		display: block;
+		padding: 0;
+		width: 5vh;
+		height: fit-content;
+	}
+	#hamburger > img {
+		width: 100%;
+	}
+	#nav-bar {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		flex-wrap: wrap;
+	}
+	#nav-bar > h1 {
+		display: block;
+	}
+	#nav-bar > button {
+		border: 0;
+		background-color: rgba(0, 0, 0, 0);
+	}
+	#nav-bar > button:hover {
+		cursor: pointer;
+	}	
+}
+
+
+/* ****** */
 #form{
     padding-top: 20px;
     margin: auto;
