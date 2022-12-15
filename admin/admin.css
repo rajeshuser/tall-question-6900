@@ -31,6 +31,12 @@
     grid-auto-rows: 1fr;
     margin: 8px;
 }
+@media screen and (min-width:100px) and (max-width:650px){
+    #pagination{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+    }
+}
 #pagination>div{
    border-radius: 10px;
     /* border: solid 3px black; */
