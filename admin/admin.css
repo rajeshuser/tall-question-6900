@@ -165,3 +165,10 @@ border-radius: 10px;
     color: white;
     border: none;
 }
+.pagestyle{
+	display: flex;
+	padding-left: 50%;
+	gap:5px;
+	padding-bottom: 10px;
+	padding-top: 10px;
+}

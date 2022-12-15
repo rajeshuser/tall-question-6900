@@ -1,6 +1,10 @@
 let procucturl = "https://639883a4fe03352a94d3d897.mockapi.io/product/kpc";
 let userurl = "https://639883a4fe03352a94d3d897.mockapi.io/product/kpc_user";
 let count = 0;
+let otp = document.querySelector(".otp");
+window.addEventListener("load", () => {
+    product();
+})
 async function product() {
     try {
         let res = await fetch(procucturl);
@@ -27,7 +31,7 @@ function pagination_button(count) {
     }
     // console.log(asListOfButtons())
     let pages = document.querySelector("#pages");
-    pages.innerHTML = asListOfButtons();
+    pages.innerHTML = `<div class=pagestyle>${asListOfButtons()}</div>`;
 
 
     let paginationButtons = document.querySelectorAll('.pagination');
@@ -55,29 +59,77 @@ async function user() {
         console(error)
     }
 }
+
 function renderdom(data) {
     let div = document.querySelector("#pagination");
     div.innerHTML = datahtml(data).join("")
 
     let deleteproduct = document.querySelectorAll('.delete');
-    console.log(deleteproduct);
+    // console.log(deleteproduct);
     for (let i = 0; i < deleteproduct.length; i++) {
         deleteproduct[i].addEventListener('click', async function (e) {
             let dataId = e.target.id;
             console.log(dataId)
-            let res = await fetch(procucturl + `/:${dataId}`, {
+            let res = await fetch(procucturl + `/${dataId}`, {
                 method: "DELETE",
-                headers: "content_type:aplication/json"
+                headers: {"Content-Type": "application/json"}
             })
-            console.log(res);
+            if(res.ok){
+            alert("Product is deleted");
+            fetch(procucturl + `?p=1&l=10`)
+            .then(res => res.json())
+            .then(data => renderdom(data));
+            }else {
+                alert("Something is wrong")
+            }
         })
     }
     let editproduct = document.querySelectorAll('.edit');
     for (let i = 0; i < editproduct.length; i++) {
-        deleteproduct[i].addEventListener('click', async function (e) {
+      editproduct[i].addEventListener('click', async function (e) {
             let dataId = e.target.id;
-            console.log(dataId);
+            let data=await (await fetch(procucturl+`/${dataId}`)).json(); 
+            otp.classList.add("active"); 
+    document.querySelector("#title").value=data.Title;
+   document.querySelector("#des").value=data.description;
+    document.querySelector("#price").value=data.price;
+   document.querySelector("#offer").value=data.offer;
+    document.querySelector("#image").value=data.image;
+
+    let addbutton=document.querySelector('form');
+    addbutton.addEventListener("submit",async function(e){
+        e.preventDefault()
+    let title=document.querySelector("#title").value;
+    let description=document.querySelector("#des").value;
+    let price=document.querySelector("#price").value;
+    let offer=+document.querySelector("#offer").value;
+    let image=document.querySelector("#image").value;
+    let obj= {
+        "Title":`${title}`,
+        "description":`${description}`,
+        "image": `${image}`,
+        "price": `${price}`,
+        "offer": offer,
+       }
+       console.log(offer)
+       let res = await fetch(procucturl+`/${dataId}`, {
+        method: "PUT",
+        headers: {"Content-Type": "application/json"},
+        body:JSON.stringify(obj)
+    })
+    if(res.ok){
+    alert("Product is Updated");
+    fetch(procucturl + `?p=1&l=10`)
+    .then(res => res.json())
+    .then(data => renderdom(data));
+    }else {
+        alert("Something is wrong")
+    }
+    })
+
         })
+        otp.classList.remove("active"); 
+
     }   
 }
 
@@ -101,5 +153,36 @@ function datahtml(data) {
 
 
 function add_product() {
-
+    otp.classList.add("active"); // popup show otp
+    let addbutton=document.querySelector('form');
+    addbutton.addEventListener("submit",async function(e){
+        // e.preventDefault()
+    let title=document.querySelector("#title").value;
+    let description=document.querySelector("#des").value;
+    let price=document.querySelector("#price").value;
+    let offer=+document.querySelector("#offer").value;
+    let image=document.querySelector("#image").value;
+    let obj= {
+        "Title":`${title}`,
+        "description":`${description}`,
+        "image": `${image}`,
+        "price": `${price}`,
+        "offer": offer,
+       }
+       console.log(typeof(offer))
+       let res = await fetch(procucturl, {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body:JSON.stringify(obj)
+    })
+    if(res.ok){
+    alert("Product is add");
+    fetch(procucturl + `?p=1&l=10`)
+    .then(res => res.json())
+    .then(data => renderdom(data));
+    }else {
+        alert("Something is wrong")
+    }
+    })
+      
 }
