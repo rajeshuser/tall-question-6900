@@ -30,11 +30,6 @@ let slideIndex = 0;
 startSlideShow();
 updateGreetings();
 
-/*
-updateOrderType();
-updateAddressBar();
-*/
-
 // all addEventListner() are below
 
 slideButtonLeft.addEventListener("click", (event) => {
@@ -46,14 +41,6 @@ slideButtonLeft.addEventListener("click", (event) => {
 });
 
 slideButtonRight.addEventListener("click", showSlide);
- 
-/*
-hamburgerElement.addEventListener("click", (event) => {
-	navOptionsElement.classList.toggle("toggle-display");
-});
-
-orderSettingElement.addEventListener("click", toggleOrderSettingsModal);
-*/
 
 orderTypeElements.forEach((item) => item.addEventListener("click", (event) => {
 	let orderType = event.target.value;
@@ -97,29 +84,6 @@ redeemElements.forEach((item) => item.addEventListener("click", (event) => {
 	toggleRedeemFeedbackModal();
 }));
 
-/*
-orderSettingsFormElement.addEventListener("submit", function(event) {
-	event.preventDefault();
-	let orderSettings = {
-		type: orderSettingsFormElement[0].value,
-		address: orderSettingsFormElement[1].value,
-		time: orderSettingsFormElement[2].value,
-	}
-	console.log(orderSettings);
-	if(orderSettings.type==="" || orderSettings.address==="" || orderSettings.time==="") {
-		// form validation
-		alert("Please fill all the fields");
-		return;
-	}
-	localStorage.setItem("orderSettings", JSON.stringify(orderSettings));
-	toggleOrderSettingsModal();
-	updateOrderType();
-	updateAddressBar();
-	event.target.reset();
-});
-*/
-
-
 // all functions are below
 
 function updateGreetings() {
@@ -135,12 +99,6 @@ function showSlide() {
 	slideIndex = (slideIndex+1) % slideShowImages.length;
 	slideElement.src = slideShowImages[slideIndex];
 }
-
-/*
-function toggleOrderSettingsModal(event) {
-	orderSettingsModal.classList.toggle("toggle-order-settings-modal");
-}
-*/
 
 function toggleRedeemFeedbackModal(event) {
 	console.log("hello")
@@ -161,26 +119,6 @@ function updateOrderType() {
 		}
 	}
 }
-
-/*
-function updateAddressBar() {
-	let orderSettings = JSON.parse(localStorage.getItem("orderSettings"));
-	addressElement.innerText = orderSettings.address || "Select your order details";
-	console.dir(addressElement)
-}
-*/
-
-// onclick events are handled below
-
-/*
-orderSettingsModal.onclick = function(event) {
-	// onclick is fired when the mouse is clicked inside the box and it do not care about its exposure
-	// event.target checks the topmost element on which the mouse is clicked
-	if(event.target===orderSettingsModal) {
-		toggleOrderSettingsModal();
-	}
-};
-*/
 
 redeemFeedbackModal.onclick = function(event) { 
 	if(event.target===redeemFeedbackModal) {
