@@ -63,7 +63,7 @@ redeemElements.forEach((item) => item.addEventListener("click", (event) => {
 	let user = JSON.parse(localStorage.getItem("user", "redeemedOffersIds"));
 	if(user===null) {
 		alert("Please login first to redeem offer");
-		return;
+		return
 		user = {
 			username: "Ananya Pandey",
 			redeemedOffersIds: []

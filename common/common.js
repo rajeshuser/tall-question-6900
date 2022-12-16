@@ -3,7 +3,6 @@ const navBarElement = document.querySelector("#nav-bar");
 const orderSettingBarElement = document.querySelector("#order-settings1");
 const orderSettingsModal =document.querySelector("#order-settings-modal");
 const footerElement = document.querySelector("#footer");
-
 navBarElement.innerHTML = `
 	<div class="logo">
 		<a href="${rootFolder}/index.html"><img src="${rootFolder}/resources/logo.png" alt="logo"></a>
@@ -19,10 +18,11 @@ navBarElement.innerHTML = `
 		<li><a href="${rootFolder}/cart/cart.html">Cart</a></li>
 	</ul>
 `;
-orderSettingBarElement.innerHTML = `
-	<p>Select your order details</p>
-	<button>Set order</button>
+orderSettingBarElement.innerHTML=`
+<p>Select your order details</p>
+<button>Set order</button>
 `;
+	
 orderSettingsModal.innerHTML = `
 	<div id="order-settings-modal-content">
 		<h1>Order Settings</h1>
@@ -91,6 +91,7 @@ footerElement.innerHTML = `
 const hamburgerElement = document.querySelector("#hamburger");
 const navOptionsElement = document.querySelector("#nav-options");
 const orderSettingElement = document.querySelector("#order-settings1 > button");
+
 const orderSettingsFormElement = document.querySelector("#order-settings-modal-content > form");
 const addressElement = document.querySelector("#order-settings1 > p");
 
@@ -131,8 +132,9 @@ function toggleOrderSettingsModal(event) {
 
 function updateAddressBar() {
 	let orderSettings = JSON.parse(localStorage.getItem("orderSettings"));
+	 
 	addressElement.innerText = orderSettings.address || "Select your order details";
-	console.dir(addressElement)
+   
 }
 
 orderSettingsModal.onclick = function(event) {
