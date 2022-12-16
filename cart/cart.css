@@ -1,0 +1,16 @@
+#main {
+	padding: 5%;
+}
+
+
+
+#startOrderAnchor {
+	text-decoration: none;
+	display: block;
+	color: white;
+	background-color: rgb(252, 65, 65);
+	padding: 10px;
+	border-radius: 100px;
+	width: 100px;
+	text-align: center;
+}

@@ -1,3 +1,16 @@
+#adminAnchor {
+	display: block;
+	margin: 10px 10px 10px auto;
+	background-color: green;
+	color: white;
+	border: 0;
+	border-radius: 100px;
+	padding: 10px;
+	width: 100px;
+	text-align: center;
+	text-decoration: none;
+}
+
 #main {
 	display: flex;
 	margin: 7%;
