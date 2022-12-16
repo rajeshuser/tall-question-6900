@@ -37,7 +37,8 @@
 }
 .otp.active>div {
   transform: scale(1);
-}
+  }
+ 
 </style>
 <body>
   <div class="otp">
@@ -55,20 +56,21 @@
           <input type="text" placeholder="image link" id="image"><br>
           <input type="submit" value="Add">
         </form>
+        <button onclick="close_button()">Close</button>
     </div>
   </div>
     <div id="nav-bar">
 		<div class="logo">
-			<img src="\resources\logo.png" alt="logo"></a>
+			<img src="..\resources\logo.png" alt="logo"></a>
 		</div>
 		<h1>KPC</h1>
 		<button id="hamburger">
-			<img src="/resources/hamburger.png" alt="hamburger">
+			<img src="../resources/hamburger.png" alt="hamburger">
 		</button>
 		<ul id="nav-options">
 			<li><h3 onclick="add_product()" >Add Product</h3></li>
 			<li><h3 onclick="product()">Product</h3></li>
-			<li><h3 onclick="user()">user</h3></li>
+			<li><h3 onclick="user()">User</h3></li>
 		</ul>
 	</div>
 

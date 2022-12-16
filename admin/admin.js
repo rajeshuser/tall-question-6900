@@ -8,8 +8,12 @@ button.addEventListener("submit",((event)=>{
 
     let uname=document.getElementById("uname").value;
     let upassword=document.getElementById("upassword").value;
+    if(upassword!="admin"){
+        let p=document.querySelector("#wrong");
+        p.innerText="Please enter your valid password"
+    }
     
-    if(uname==="admin" && upassword==="admin"){
+    else if(uname==="admin" && upassword==="admin"){
         alert("login successful")
         window.location.href="dashboard.html"
     }else{

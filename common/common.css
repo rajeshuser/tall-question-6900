@@ -27,13 +27,15 @@ body {
 	width: 100%;
 	list-style: none;
 	justify-content: space-around;
+	align-items: center;
 }
 #nav-options > li {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	font-size: 130%;
-	padding: 5px 15px;
+	padding: 10px 15px;
+	height: fit-content;
 	font-weight: bolder;
 }
 #nav-options a {

@@ -1,0 +1,141 @@
+#main {
+	display: flex;
+	margin: 7%;
+	gap: 20px;
+}
+@media screen and (max-width: 500px) {
+	#main {
+		flex-direction: column;
+		align-items: center;
+	}
+	#main > * {
+		width: 100%;
+	}
+}
+
+
+
+#emailForm, #passwordForm, #createAccountForm {
+	display: flex;
+	flex-direction: column;
+	margin: auto;
+	width: 30%;
+	min-width: 300px;
+	padding: 30px;
+	box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+	justify-content: center;
+	align-items: center;
+	gap: 5vh;
+}
+#emailForm label, #passwordForm label {
+	font-size: larger;
+}
+#emailForm input, #passwordForm input, #createAccountForm input {
+	height: 30px;
+	width: 60%;
+}
+#emailForm > input[type="submit"], #passwordForm > input[type="submit"], #createAccountForm > input[type="submit"] {
+	background-color: rgb(252, 65, 65);
+	border-radius: 100px;
+	padding: 10px 20px;
+	height: fit-content;
+	border: 0;
+	color: white;
+}
+#createAccountForm {
+	width: 25%;
+	gap: 2vh;
+} 
+#createAccountForm label {
+	align-self: flex-start;
+}
+#createAccountForm input {
+	width: 100%;
+}
+#createAccountForm [type="submit"] {
+	align-self: center;
+	width: 60%;
+}
+#names {
+	display: flex;
+	gap: 50px;
+}
+
+
+
+#optionsCard {
+	display: flex;
+	width: 30%;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	gap: 10px;
+	min-width: 200px;
+}
+#optionsCard > button {
+	width: 80%;
+	padding: 10px;
+	border: 0;
+	border-radius: 100px;
+}
+#optionsCard > button:hover {
+	background-color: gray;
+	color: white;
+}
+
+
+
+#optionContent {
+	width: 70%;
+}
+#optionContent > table tr td {
+	padding-top: 20px;
+	
+}
+#optionContent > table tr > td:nth-child(1) {
+	text-align: right;
+	padding-right: 50px;
+	font-weight: bold;
+}
+
+
+
+#productsGrid {
+	display: grid;
+	gap: 20px;
+	grid-template-columns: repeat(3, 1fr);
+}
+.product {
+	display: flex;
+	flex-direction: column;
+	border-radius: 10px;
+	box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+.productImageDiv {
+	width: 100%;
+}
+.productImageDiv > img {
+	width: 100%;
+	border-top-right-radius: 10px;
+	border-top-left-radius: 10px;
+}
+.productTextDiv {
+	font-size: 1vw;
+	padding: 15px;
+} 
+@media screen and (max-width: 900px) {
+	#productsGrid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+	.productTextDiv {
+		font-size: 2vw;
+	} 
+}
+@media screen and (max-width: 600px) {
+	#productsGrid {
+		grid-template-columns: repeat(1, 1fr);
+	}
+	.productTextDiv {
+		font-size: 3vw;
+	} 
+}
