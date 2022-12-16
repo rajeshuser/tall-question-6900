@@ -4,6 +4,8 @@ const orderSettingBarElement = document.querySelector("#order-settings1");
 const orderSettingsModal =document.querySelector("#order-settings-modal");
 const footerElement = document.querySelector("#footer");
 
+createNecessaryKeysInLocalStorage();
+
 navBarElement.innerHTML = `
 	<div class="logo">
 		<a href="${rootFolder}/index.html"><img src="${rootFolder}/resources/logo.png" alt="logo"></a>
@@ -142,6 +144,26 @@ orderSettingsModal.onclick = function(event) {
 		toggleOrderSettingsModal();
 	}
 };
+
+function createNecessaryKeysInLocalStorage() {
+	// pages using common.js should load the common.js first then the remaining scripts can be loaded
+	// this function should run as soon as common.js script is loaded
+	if(localStorage.getItem("user")===null) {
+		let user = {
+			username: "Arjun Reddy",
+			redeemedOffersIds: []
+		}
+		localStorage.setItem("user", JSON.stringify(user));
+	}
+	if(localStorage.getItem("orderSettings")===null) {
+		let orderSettings = {
+			type: "Delivery",
+			address: "Delhi",
+			time: "2022-12-22"
+		}
+		localStorage.setItem("orderSettings", JSON.stringify(orderSettings));
+	}
+}
 
 
 
