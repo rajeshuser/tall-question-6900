@@ -38,7 +38,35 @@
 .otp.active>div {
   transform: scale(1);
   }
- 
+ .otp >div >form{
+  padding-top: 20px;
+    margin: auto;
+    padding-left: 40px;
+    /* border:solid 1px red; */
+    border-radius: 20px;
+ }
+ .otp >div >form input{
+ gap: 5px;
+  
+ }
+ .otp >div >button{
+  margin-top: 5px;
+  width: 350px;
+    height: 40px;
+    background-color: rgb(236, 111, 111);
+    color: white;
+    border: none;
+    border-radius: 30px;
+}
+#otpbutton{
+  margin-top: 5px;
+  width: 180px;
+    height: 40px;
+    background-color: rgb(236, 111, 111);
+    color: white;
+    border: none;
+    border-radius: 30px;
+}
 </style>
 <body>
   <div class="otp">
@@ -54,7 +82,7 @@
           <input type="text" placeholder="offer" id="offer"><br>
           <label for="">Image Link</label><br>
           <input type="text" placeholder="image link" id="image"><br>
-          <input type="submit" value="Add">
+          <input type="submit"  id="otpbutton" value="Add">
         </form>
         <button onclick="close_button()">Close</button>
     </div>
