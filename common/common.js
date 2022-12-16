@@ -148,13 +148,6 @@ orderSettingsModal.onclick = function(event) {
 function createNecessaryKeysInLocalStorage() {
 	// pages using common.js should load the common.js first then the remaining scripts can be loaded
 	// this function should run as soon as common.js script is loaded
-	if(localStorage.getItem("user")===null) {
-		let user = {
-			username: "Arjun Reddy",
-			redeemedOffersIds: []
-		}
-		localStorage.setItem("user", JSON.stringify(user));
-	}
 	if(localStorage.getItem("orderSettings")===null) {
 		let orderSettings = {
 			type: "Delivery",
