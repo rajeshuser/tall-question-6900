@@ -13,11 +13,15 @@ body {
 
 #nav-bar {
 	display: flex;
-	width: 80%;
-	margin: auto;
+	width: 100%;
+	position: fixed;
+	top: 0;
+	background-color: white;
+	z-index: 2;
 }
 .logo {
 	width: 15vh;
+	padding-left: 50px;
 }
 .logo > a > img {
 	width: 100%;
@@ -28,6 +32,7 @@ body {
 	list-style: none;
 	justify-content: space-around;
 	align-items: center;
+	margin-right: 50px;
 }
 #nav-options > li {
 	display: flex;
@@ -78,6 +83,7 @@ body {
 		padding: 0;
 		width: 5vh;
 		height: fit-content;
+		margin-right: 50px;
 	}
 	#hamburger > img {
 		width: 100%;
@@ -109,6 +115,7 @@ body {
 	align-items: center;
 	background-color: rgb(11, 19, 43);
 	color: white;
+	margin-top: 110px;
 }
 #order-settings1 > p {
 	margin-right: 3%;
@@ -134,7 +141,7 @@ body {
 	height: 100%;
 	position: fixed;
 	top: 0;
-	z-index: 2;
+	z-index: 3;
 }
 #order-settings-modal-content {
 	margin: 10vh auto;
