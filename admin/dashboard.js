@@ -186,3 +186,6 @@ function add_product() {
     })
       
 }
+function close_button(){
+    otp.classList.remove("active"); 
+}
