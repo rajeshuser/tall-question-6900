@@ -53,10 +53,66 @@ async function user() {
     try {
         let res = await fetch(userurl);
         let data = await res.json();
-        // renderdom(data)
-        console.log(data)
+        user_data(data)
+        // console.log(data)
     } catch (error) {
-        console(error)
+        console.log(error)
+    }
+}
+// user()
+function user_data(data){
+    let con = document.querySelector("#pagination");
+    // con.innerHTML=" ";
+    // console.log(data)
+    let arr=data.map((ele)=>{
+        // console.log(ele)
+        return`
+        <div id='${ele.id}'>
+        <img src='${ele.avatar}' alt="">
+			<h3>${ele.f_name}</h3>
+			<h3>${ele.l_name}</h3>
+			<h4>${ele.username}</h4>
+			<h4>${ele.password}</h4>
+			<h4>${ele.email}</h4>
+			<p>${ele.Redeem_offer}</p>
+			<p>${ele.cart}</p>
+			<p>${ele.fav_product}</p>
+			<p>${ele.ordered_product}</p>
+            <button id="${ele.id}" class="delete">Delete</button>
+		</div>
+        `
+    })
+    con.innerHTML=arr.join("")
+
+let deleteItem=document.querySelectorAll(".delete");
+for(let i=0; i<deleteItem.length; i++){
+    deleteItem[i].addEventListener("click",function(event){
+        let deleteId=event.target.id;
+        fun_delete(deleteId)
+    })
+}
+
+}
+
+async function fun_delete(deleteId){
+    try {
+        let res=await fetch(userurl + `/${deleteId}`,{
+            method:"DELETE",
+            headers:{"content-type":"application/json"}
+        })
+        if(res.ok){
+            alert("product deleted")
+            let data=await res.json()
+            fetch(userurl)
+            .then((resp)=>resp.json())
+            .then((data)=>{
+            user_data(data)
+                // console.log(data)
+            })
+            
+        }
+    } catch (error) {
+        alert(error)
     }
 }
 

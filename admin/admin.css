@@ -1,8 +1,12 @@
 #nav-bar {
 	display: flex;
-	/* width: 80%; */
+    position: fixed;
+    top: 0px;
+    overflow: hidden;
+	width: 100%;
 	margin: auto;
-    /* border: solid 1px; */
+    background-color: white;
+    height: 135px;
 	
 }
 #nav-options>li>button{
@@ -106,18 +110,27 @@
     /* border:solid 1px red; */
     height: 400px;
     width: 400px;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     border-radius: 20px;
-
+	background-color: rgb(205, 101, 93);
+	margin-top: 140px;
     
 }
+#wrong{
+	color: rgb(129, 3, 3);
+	font-size: 20px;
+}
 #form>input,label{
-    font-size: 30px;
+    font-size: 20px;
+	margin-top: 5px;
+}
+#form>h1{
+	color: rgb(11, 10, 10);
 }
 #logbtn{
     width: 300px;
     height: 40px;
-    background-color: rgb(236, 111, 111);
+    background-color: rgb(178, 16, 16);
     color: white;
     border: none;
     border-radius: 30px;
@@ -128,9 +141,10 @@
 #pagination{
     display: grid;
     grid-template-columns: repeat(4,1fr);
-    gap: 10px;
+    gap: 20px;
     grid-auto-rows: 1fr;
     margin: 8px;
+	margin-top: 140px;
 }
 @media screen and (min-width:100px) and (max-width:650px){
     #pagination{
@@ -141,7 +155,7 @@
 #pagination>div{
    border-radius: 10px;
     /* border: solid 3px black; */
-    box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
     
 }
 
