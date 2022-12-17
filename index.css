@@ -344,6 +344,7 @@ body {
 	background-color: white;
 	padding: 20px;
 	border-radius: 20px;
+	font-size: 2vw;
 }
 .toggle-redeem-feedback-modal {
 	display: block !important;
