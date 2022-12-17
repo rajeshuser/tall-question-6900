@@ -69,15 +69,15 @@ function user_data(data){
         return`
         <div id='${ele.id}'>
         <img src='${ele.avatar}' alt="">
-			<h3>${ele.f_name}</h3>
-			<h3>${ele.l_name}</h3>
-			<h4>${ele.username}</h4>
-			<h4>${ele.password}</h4>
-			<h4>${ele.email}</h4>
-			<p>${ele.Redeem_offer}</p>
-			<p>${ele.cart}</p>
-			<p>${ele.fav_product}</p>
-			<p>${ele.ordered_product}</p>
+			<h3>First Name- ${ele.f_name}</h3>
+			<h3>Last Name- ${ele.l_name}</h3>
+			<h4>User Name- ${ele.username}</h4>
+			<h4>Password- ${ele.password}</h4>
+			<h4>Email- ${ele.email}</h4>
+			<p>Redeem Offer- ${ele.Redeem_offer}</p>
+			<p>Cart- ${ele.cart}</p>
+			<p>Favourite Product- ${ele.fav_product}</p>
+			<p>Order product- ${ele.ordered_product}</p>
             <button id="${ele.id}" class="delete">Delete</button>
 		</div>
         `

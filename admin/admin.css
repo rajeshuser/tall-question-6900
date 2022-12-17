@@ -6,7 +6,7 @@
 	width: 100%;
 	margin: auto;
     background-color: white;
-    height: 135px;
+    height: 100px;
 	
 }
 #nav-options>li>button{
@@ -24,6 +24,9 @@
 }
 .logo > a > img {
 	width: 100%;
+}
+.logo>img{
+	width: 100px;
 }
 #nav-options {
 	display: flex;
@@ -104,15 +107,17 @@
 
 /* ****** */
 #form{
-    padding-top: 20px;
+	padding: 2%;
+    /* padding-top: 20px; */
     margin: auto;
-    padding-left: 40px;
+    /* padding-left: 40px; */
     /* border:solid 1px red; */
-    height: 400px;
-    width: 400px;
+    /* height: 400px; */
+	height: fit-content;
+    width: 20%;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     border-radius: 20px;
-	background-color: rgb(205, 101, 93);
+	/* background-color: rgb(205, 101, 93); */
 	margin-top: 140px;
     
 }
@@ -120,15 +125,25 @@
 	color: rgb(129, 3, 3);
 	font-size: 20px;
 }
+#form>input[type="text"]{
+	width: 100%;
+	height: 30px;
+}
 #form>input,label{
     font-size: 20px;
 	margin-top: 5px;
+
+}
+#form>input:nth-child(1), #form>input:nth-child(2){
+	width: 100%;
 }
 #form>h1{
 	color: rgb(11, 10, 10);
 }
 #logbtn{
-    width: 300px;
+	display: block;
+	margin: auto;
+    width: 80%;
     height: 40px;
     background-color: rgb(178, 16, 16);
     color: white;
@@ -144,7 +159,9 @@
     gap: 20px;
     grid-auto-rows: 1fr;
     margin: 8px;
-	margin-top: 140px;
+	margin-top: 110px;
+	/* margin: auto 3%; */
+	margin: 7% 3% auto 3%;
 }
 @media screen and (min-width:100px) and (max-width:650px){
     #pagination{
@@ -156,6 +173,7 @@
    border-radius: 10px;
     /* border: solid 3px black; */
     box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
+	
     
 }
 
