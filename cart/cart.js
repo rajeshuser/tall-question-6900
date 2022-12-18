@@ -127,11 +127,11 @@ function toggleCheckoutModal() {
 			</tr>
 			<tr>
 				<td> GST (18%) </td>
-				<td id="gst"> ${0.18 * getCartBill()} <td>
+				<td id="gst"> ${Math.ceil(0.18 * getCartBill())} <td>
 			</tr>
 			<tr>
 				<td> Gross total </td>
-				<td id="grossTotal"> ${1.18 * getCartBill()} <td>
+				<td id="grossTotal"> ${Math.ceil(1.18 * getCartBill())} <td>
 			</tr>
 			<tr>
 				<td> Offers </td>

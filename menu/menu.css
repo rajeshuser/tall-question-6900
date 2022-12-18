@@ -115,10 +115,10 @@ width: 15%;
     width:75%;
 	margin-top: 100px;
 }
-#main-body ul{
+/* #main-body ul{
 	position:fixed;
 	top:130px;
-}
+} */
 #main-body ul>h2{
 	font-size: 40px;
 	font-weight:700;

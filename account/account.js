@@ -77,7 +77,7 @@ class loginClass {
     }
 
     loadCreateAccountForm() {
-		this.toggleAdminButton(false);
+		this.toggleAdminButton(true);
         main.innerHTML = `
 			<form id="createAccountForm">
 				<h2> Create account </h2>
@@ -122,9 +122,12 @@ class loginClass {
                         body: JSON.stringify(user),
                     });
                     if (response.ok === true) {
+						let user = await response.json();
                         localStorage.setItem("user", JSON.stringify(user));
                         accountObject.loadAccountInfo();
-                    }
+                    } else {
+						alert("Response not OK")
+					}
                 } catch (error) {
                     console.log(error);
                 }
@@ -136,6 +139,7 @@ class accountInfoClass {
     // this class handles all the things when user is logged in
 
     loadAccountInfo() {
+		loginObject.toggleAdminButton(true);
         main.innerHTML = `
 			<div id="optionsCard">
 				<h2>Good day</h2>

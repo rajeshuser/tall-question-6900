@@ -73,9 +73,9 @@ function user_data(data){
         return`
         <div id='${ele.id}'>
         <img src='${ele.avatar}' alt="">
-        <h3>User Name- ${ele.username}</h3>
-			<h4>First Name- ${ele.f_name}</h4>
-			<h4>Last Name- ${ele.l_name}</h4>
+			<h3>First Name- ${ele.f_name}</h3>
+			<h3>Last Name- ${ele.l_name}</h3>
+			<h4>User Name- ${ele.username}</h4>
 			<h4>Password- ${ele.password}</h4>
 			<h4>Email- ${ele.email}</h4>
 			<p>Redeem Offer- ${ele.Redeem_offer}</p>

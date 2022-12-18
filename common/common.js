@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-const rootFolder = "C:/Users/RanjanKr/Desktop/123456/tall-question-6900"
-=======
-const rootFolder = "C:/Users/chowd/OneDrive/Desktop/tall-question-6900"
->>>>>>> d0781677ef8e758898971c77eb541bcf0974b4fc
+const rootFolder = "C:/Users/Rajesh/Desktop/tall-question-6900";
 const navBarElement = document.querySelector("#nav-bar");
 const orderSettingBarElement = document.querySelector("#order-settings1");
 const orderSettingsModal =document.querySelector("#order-settings-modal");
