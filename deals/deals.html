@@ -6,16 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Deals</title>
     <link rel="stylesheet" href="deals.css" />
-    <link rel="stylesheet" href="common/common.css">
+    <link rel="stylesheet" href="../common/common.css">
   </head>
   <body>
+    <div id="order-settings-modal"></div>
+    
     <div id="nav-bar">
 		<!-- updated dynamically -->
 	</div>
 
+    <div id="order-settings1"></div>
 
-    <div id="Location"><p>Delivery to: Nandankanan Road, Sishu Vihar, Chandrasekharpur, Bhubaneswar, Odisha, India
-        3 Stripes Icon 12:45 PM - 1:00 PM <button>Change</button></p></div>
     <div id="Banner">
 <img src="..\resources\banner.jpg" alt="">
     </div>
@@ -34,7 +35,7 @@
             <p><b>1 Pc free Chicken Zinger on a cart value of 499 or above on first order. Only for registered...</b></p>
             <div id="mini-card">
                 <p><b><u>View Details</u></b></p>
-                <button><b>Redeem</b></button>
+                <button  class="redeem-button" data-offerid="1"><b>Redeem</b></button>
             </div>
         </div>
         <div>
@@ -43,7 +44,7 @@
             <p><b>1 Pc free Veg Zinger on a cart value of 499 or above on first order. Only for registered users</b></p>
             <div id="mini-card">
                 <p><b><u>View Details</u></b></p>
-                <button><b>Redeem</b></button>
+                <button class="redeem-button" data-offerid="2"><b>Redeem</b></button>
             </div>
         </div>
         <div>
@@ -52,7 +53,7 @@
             <p><b>Add 2 Pc Hot n Crispy Chicken @ just Rs 99 on min cart value of Rs 499 or more. Applicable</b></p>
             <div id="mini-card">
                 <p><b><u>View Details</u></b></p>
-                <button><b>Redeem</b></button>
+                <button class="redeem-button" data-offerid="3"><b>Redeem</b></button>
             </div>
         </div>
         <div>
@@ -61,66 +62,25 @@
             <p><b>Upto Rs 100 off on min cart value of Rs 599 or more . Applicable on 4th order onwards for</b></p>
             <div id="mini-card">
                 <p><b><u>View Details</u></b></p>
-                <button><b>Redeem</b></button>
+                <button class="redeem-button" data-offerid="4"><b>Redeem</b></button>
             </div>
         </div>
     </div>
+
+    <div id="redeem-feedback-modal">
+        <div id="redeem-feedback-modal-content">
+            <h2>Congratulations!!</h2>
+            <h3>You got a new coupon</h3>
+        </div>
+    </div>
+
+
     <div id="footer">
-        <div class="logo">
-            <a href="home.html"><img src="C:\Users\chowd\OneDrive\Desktop\tall-question-6900\resources\logo.png" alt="logo"></a>
-        </div>
-
-        <ul>
-            KPC Food
-            <li>Menu</li>
-            <li>Order Lookup</li>
-            <li>Gift Card</li>
-            <li>Privacy Policy</li>
-        </ul>
-
-        <ul>
-            Support
-            <li>Get Help</li>
-            <li>Contact Us</li>
-            <li>KPC Feedback</li>
-            <li>Nutrition & Allergen</li>
-        </ul>
-
-        <ul>
-            Legal
-            <li>Terms and Conditions</li>
-            <li>Privacy Policy</li>
-            <li>Disclaimer</li>
-            <li>Caution Notice</li>
-        </ul>
-
-        <ul>
-            KPC India
-            <li>About KPC</li>
-            <li>KPC Care</li>
-            <li>Careers</li>
-            <li>Our Golden Past</li>
-        </ul>
-
-        <div id="find-kpc">
-            Find KPC
-        </div>
-
-        <div id="app-stores">
-            <a href="https://play.google.com"><img src="https://images.ctfassets.net/wtodlh47qxpt/6BdZsyjLn64c06uCIE73d1/fb530f5d5231533b049463f6c7e8a2b1/google_play.svg" alt="googlePlay"></a>
-            <a href="https://www.apple.com"><img src="https://images.ctfassets.net/wtodlh47qxpt/em3mcMuAdXWlgucSJiTbS/d3ae7e51ed101d829e459355e255c47f/apple.svg" alt="appStore"></a>
-        </div>
-
-        <p id="copyright">Copyright © KPC Corporation 2021 All Rights Reserved</p>
-
-        <div id="media-links">
-            <a href="https://www.instagram.com"><img src="https://images.ctfassets.net/wtodlh47qxpt/4ZHyPA2EeaoP3aqtNDriBA/463462a9c27b0aa585e12b21ce3766e0/Social_Insta_White.svg" alt="instagram"></a>
-            <a href="https://www.facebook.com"><img src="https://images.ctfassets.net/wtodlh47qxpt/dKiu2meLcfz2DNwsg7nZw/7194830b1ba6f25b158a23d6b2c4752c/Social_Facebook_White.svg" alt="facebook"></a>
-            <a href="https://www.twitter.com"><img src="https://images.ctfassets.net/wtodlh47qxpt/78z9x0WwdkdXwGVK726EKX/6599ca34ec88e2a6f46d7d94ed85a8ad/Social_Twitter_White.svg" alt="twitter"></a>
-        </div>
+        <!-- updated dynamically -->
     </div>
 
 
   </body>
 </html>
-<script src="..\common\common.js"></script>
+<script src="../common/common.js"></script>
+<script src="../deals/deals.js"></script>

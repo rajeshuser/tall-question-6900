@@ -157,7 +157,3 @@ function createNecessaryKeysInLocalStorage() {
 		localStorage.setItem("orderSettings", JSON.stringify(orderSettings));
 	}
 }
-
-
-
-

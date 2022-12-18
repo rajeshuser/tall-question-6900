@@ -102,6 +102,7 @@ body {
     display:flex;
     width: 85%;
     margin: auto;
+	margin-bottom: 40px;
 }
 #main-body>:nth-child(1){
     width:30%;
@@ -111,7 +112,7 @@ margin-left: 45PX;
 width: 15%;
 }
 #main-body>:nth-child(2){
-    width:70%;
+    width:75%;
 	margin-top: 100px;
 }
 #main-body ul>h2{
@@ -121,7 +122,7 @@ width: 15%;
 #main-body ul>h3{
 	font-size: 20px;
 	font-weight:0;
-	color: rgb(140, 140, 140);
+	color: rgb(129, 129, 129);
 }
 
 input{
@@ -130,9 +131,11 @@ input{
 	padding: 5px;
 }
 .type{
-	background-color: gray;
+	background-color: rgb(230, 230, 230);
 	padding: 20px 0px 20px 15px;
 	margin-top: 50px;
+	border-radius: 10px;
+	
 }
 
 hr{
@@ -141,29 +144,41 @@ hr{
 
   /* ..................menu part................ */
 p{
-	font-size: 13px;
+	font-size: 12px;
 }
-  .menu{
+h3{
+	font-size: 15px;
+}
+  .menu,.menu1{
 	display: grid;
 	grid-template-columns: repeat(3,1fr);
 	grid-template-rows: auto;
-	
   }
-  .menu>div{
+  .menu>div,.menu1>div{
 	margin: 5px;
 	border-radius: 10px;
 	box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 	margin-top: 40px;
   }
-  .menu>div>div~div{
+  .menu>div>div~div,.menu1>div>div~div{
 	padding: 0px 20px 20px 20px;
   }
-  .menu img{
+  .menu>div>:nth-child(1),.menu1>div>:nth-child(1){
+	position: relative;
+  }
+  .menu>div>:nth-child(1)>img~img,.menu1>div>:nth-child(1)>img~img{
+	width: 7%;
+	position: absolute;
+	top: 15px;
+	right: 15px;
+
+  }
+  .menu img,.menu1 img{
 	width: 100%;
 	border-top-right-radius: 10px;
 	border-top-left-radius: 10px;
   }
-  .menu button{
+  .menu>div>:nth-child(2)>button,.menu1>div>:nth-child(2)>button{
 	display: block;
 background-color: red;
 color: white;
@@ -173,6 +188,64 @@ border: none;
 border-radius: 30px;
 margin: auto;
 }
+@media screen and (max-width:1000px){
+	.menu,.menu1{
+		display: grid;
+		grid-template-columns: repeat(1,1fr);
+		grid-template-rows: auto;
+		
+	  }
+}
+
+.menu2{
+	display: grid;
+	grid-template-columns: repeat(3,1fr);
+	grid-template-rows: auto;
+  } 
+   .menu2>div{
+	margin: 5px;
+	border-radius: 10px;
+	box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+	margin-top: 40px;
+  } 
+   .menu2>div>div~div{
+	padding: 0px 20px 20px 20px;
+  } 
+   .menu2>div>:nth-child(1){
+	position: relative;
+  } 
+  .menu2>div>:nth-child(1)>img~img{
+	width: 7%;
+	position: absolute;
+	top: 15px;
+	right: 15px;
+
+  } 
+   .menu2 img{
+	width: 100%;
+	border-top-right-radius: 10px;
+	border-top-left-radius: 10px;
+  }
+  .menu2>div>:nth-child(2)>button{
+	display: block;
+background-color: red;
+color: white;
+width: 150px;
+padding: 10px;
+border: none;
+border-radius: 30px;
+margin: auto;
+ }
+ @media screen and (max-width:1000px){
+	.menu2{
+		display: grid;
+		grid-template-columns: repeat(1,1fr);
+		grid-template-rows: auto;
+		
+	  } 
+}
+
+
 /* .........footer part........ */
 #footer {
 	display: flex;
