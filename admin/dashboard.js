@@ -2,6 +2,8 @@ let procucturl = "https://639883a4fe03352a94d3d897.mockapi.io/product/kpc";
 let userurl = "https://639883a4fe03352a94d3d897.mockapi.io/product/kpc_user";
 let count = 0;
 let otp = document.querySelector(".otp");
+let edit1 = document.querySelector(".edit1");
+
 window.addEventListener("load", () => {
     product();
 })
@@ -62,6 +64,7 @@ async function user() {
 // user()
 function user_data(data){
     let con = document.querySelector("#pagination");
+    document.querySelector("#pages").innerHTML=""
     // con.innerHTML=" ";
     // console.log(data)
     let arr=data.map((ele)=>{
@@ -69,6 +72,7 @@ function user_data(data){
         return`
         <div id='${ele.id}'>
         <img src='${ele.avatar}' alt="">
+<<<<<<< HEAD
 			<h3>First Name- ${ele.f_name}</h3>
 			<h3>Last Name- ${ele.l_name}</h3>
 			<h4>User Name- ${ele.username}</h4>
@@ -78,7 +82,19 @@ function user_data(data){
 			<p>Cart- ${ele.cart}</p>
 			<p>Favourite Product- ${ele.fav_product}</p>
 			<p>Order product- ${ele.ordered_product}</p>
+=======
+			<h3>${ele.f_name}</h3>
+			<h3>${ele.l_name}</h3>
+			<h4>${ele.username}</h4>
+			<h4>${ele.password}</h4>
+			<h4>${ele.email}</h4>
+			<p>redeem:${ele.Redeem_offer}</p>
+			<p>${ele.cart}</p>
+			<p>${ele.fav_product}</p>
+			<p>${ele.ordered_product}</p>
+>>>>>>> 401bc27f908e19b9520fdf798ddf5690ab0c2969
             <button id="${ele.id}" class="delete">Delete</button>
+            <button id="${ele.id}" class="edit">Give Offers</button>
 		</div>
         `
     })
@@ -91,8 +107,43 @@ for(let i=0; i<deleteItem.length; i++){
         fun_delete(deleteId)
     })
 }
+let editbutton=document.querySelectorAll(".edit");
+for(let i=0; i<editbutton.length; i++){
+    editbutton[i].addEventListener("click",async function(e){
+        let dataId = e.target.id;
+        let data=await (await fetch(userurl+`/${dataId}`)).json(); 
+        edit1.classList.add("active"); 
+        console.log(data)
+        let obj={...data}
+        console.log(obj.Redeem_offer)
+document.querySelector("#username").innerText=data.username;
+let addbutton=document.querySelector('.edit1 form');
+    addbutton.addEventListener("submit",async function(event){
+        event.preventDefault();
+    let offer=document.querySelector(".offer").value;
+    console.log(offer)
+    obj['Redeem_offer']=offer;
+    console.log(obj);
+    let res = await fetch(userurl+`/${dataId}`, {
+        method: "PUT",
+        headers: {"Content-Type": "application/json"},
+        body:JSON.stringify(obj)
+    })
+    if(res.ok){
+        user();
+        alert("User is Updated");
+    
+        }else {
+            alert("Something is wrong")
+        }
+        edit1.classList.remove("active");
+        
+        })
+    })
+}
 
 }
+
 
 async function fun_delete(deleteId){
     try {
@@ -152,7 +203,7 @@ function renderdom(data) {
    document.querySelector("#offer").value=data.offer;
     document.querySelector("#image").value=data.image;
 
-    let addbutton=document.querySelector('form');
+    let addbutton=document.querySelector('.otp form');
     addbutton.addEventListener("submit",async function(e){
         e.preventDefault()
     let title=document.querySelector("#title").value;
@@ -181,11 +232,11 @@ function renderdom(data) {
     }else {
         alert("Something is wrong")
     }
+    otp.classList.remove("active"); 
+
     })
-
         })
-        otp.classList.remove("active"); 
-
+       
     }   
 }
 
@@ -210,9 +261,14 @@ function datahtml(data) {
 
 function add_product() {
     otp.classList.add("active"); // popup show otp
-    let addbutton=document.querySelector('form');
+    document.querySelector("#title").value="";
+    document.querySelector("#des").value="";
+     document.querySelector("#price").value="";
+    document.querySelector("#offer").value="";
+     document.querySelector("#image").value="";
+    let addbutton=document.querySelector('.otp form');
     addbutton.addEventListener("submit",async function(e){
-        // e.preventDefault()
+        e.preventDefault()
     let title=document.querySelector("#title").value;
     let description=document.querySelector("#des").value;
     let price=document.querySelector("#price").value;
@@ -239,9 +295,10 @@ function add_product() {
     }else {
         alert("Something is wrong")
     }
+    otp.classList.remove("active"); 
     })
-      
 }
 function close_button(){
     otp.classList.remove("active"); 
+    edit1.classList.remove("active");
 }

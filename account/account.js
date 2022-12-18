@@ -145,13 +145,17 @@ class accountInfoClass {
         let accountObject = this;
 		let optionContent = document.querySelector("#optionContent");
 
-		document.querySelector("#ordersOption").addEventListener("click", function (event) {
+		document.querySelector("#ordersOption").addEventListener("click", async function (event) {
 			let user = JSON.parse(localStorage.getItem("user"));
+			let response = await fetch(`https://639883a4fe03352a94d3d897.mockapi.io/product/kpc_user/${user.id}`);
+			user = await response.json();
 			accountObject.renderProductsInOptionContent(user.ordered_product);
         });
 
-		document.querySelector("#favoritesOption").addEventListener("click", function (event) {
+		document.querySelector("#favoritesOption").addEventListener("click", async function (event) {
 			let user = JSON.parse(localStorage.getItem("user"));
+			let response = await fetch(`https://639883a4fe03352a94d3d897.mockapi.io/product/kpc_user/${user.id}`);
+			user = await response.json();
 			accountObject.renderProductsInOptionContent(user.fav_product);
         });
 
@@ -182,112 +186,18 @@ class accountInfoClass {
     }
 
 	async renderProductsInOptionContent(productIds) {	
-		// get the products of given id
-		// display them on the screen
-		// put the products inside optionContent which is already declared above 
-		let products = [
-			{
-				"Title": "Classic Zinger Burger",
-				"description": "Signature burger made with a crunchy chicken fillet, veggies & a delicious mayo sauce",
-				"image": "https://orderserv-kfc-assets.yum.com/15895bb59f7b4bb588ee933f8cd5344a/images/items/xl/D-K439.jpg?ver=22.82",
-				"price": "460.00",
-				"offer": 40,
-				"Product_id": "12"
-			},
-			{
-				"Title": "Strips & Rice Combo",
-				"description": "4 strips, 1 Dip, flavorful Rice & Gravy at a deal price",
-				"image": "https://orderserv-kfc-assets.yum.com/15895bb59f7b4bb588ee933f8cd5344a/images/items/xl/D-PR00002165.jpg?ver=22.82",
-				"price": "561.00",
-				"offer": 77,
-				"Product_id": "13"
-			},
-			{
-				"Title": "Peri Peri 6pc Chicken Strips",
-				"description": "6 Spicy Peri Peri chicken strips",
-				"image": "https://orderserv-kfc-assets.yum.com/15895bb59f7b4bb588ee933f8cd5344a/images/items/xl/D-PR00002158.jpg?ver=22.82",
-				"price": "1000.00",
-				"offer": 40,
-				"Product_id": "16"
-			},
-			{
-				"Title": "Peri Peri 5 Leg Pc & 2 Dips",
-				"description": "5 Spicy Peri Peri Leg Pieces, paired with 2 delicous dips",
-				"image": "https://orderserv-kfc-assets.yum.com/15895bb59f7b4bb588ee933f8cd5344a/images/items/xl/D-PR00002157.jpg?ver=22.82",
-				"price": "207.00",
-				"offer": 5,
-				"Product_id": "18"
-			},
-			{
-				"Title": "Mega Feast",
-				"description": "Feast up with 2 Hot & Crispy, 2 Smoky Red Chicken, 1 Bun, 1 Rice & gravy, Med Fries & Pepsi PET",
-				"image": "https://orderserv-kfc-assets.yum.com/15895bb59f7b4bb588ee933f8cd5344a/images/items/xl/D-PR00002123.jpg?ver=22.82",
-				"price": "325.00",
-				"offer": 73,
-				"Product_id": "19"
-			},
-			{
-				"Title": "Peri Peri 5 Leg Pc Meal",
-				"description": "5 Spicy Peri Peri Leg Pieces, 2 Dips, 1 Med Fries & a Pepsi PET",
-				"image": "https://orderserv-kfc-assets.yum.com/15895bb59f7b4bb588ee933f8cd5344a/images/items/xl/D-PR00002156.jpg?ver=22.82",
-				"price": "445.00",
-				"offer": 9,
-				"Product_id": "20"
-			},
-			{
-				"Title": "Peri Peri 10 Strips with Nashville",
-				"description": "10 Spicy Peri Peri chicken strips & our Nashville Hot Sauce Bottle",
-				"image": "https://orderserv-kfc-assets.yum.com/15895bb59f7b4bb588ee933f8cd5344a/images/items/xl/D-PR00002154.jpg?ver=22.82",
-				"price": "853.00",
-				"offer": 30,
-				"Product_id": "21"
-			},
-			{
-				"Title": "Veg Patty Maggi Bowl",
-				"description": "Combo of crispy Veg Patty & a bowl of hot & delicious Maggi",
-				"image": "https://orderserv-kfc-assets.yum.com/15895bb59f7b4bb588ee933f8cd5344a/images/items/xl/D-PR00002154.jpg?ver=22.82",
-				"price": "218.00",
-				"offer": 22,
-				"Product_id": "22"
-			},
-			{
-				"Title": "Veg Patty Maggi Bowl",
-				"description": "Combo of crispy Veg Patty & a bowl of hot & delicious Maggi",
-				"image": "https://orderserv-kfc-assets.yum.com/15895bb59f7b4bb588ee933f8cd5344a/images/items/xl/D-K711.jpg?ver=22.82",
-				"price": "171.00",
-				"offer": 3,
-				"Product_id": "23"
-			},
-			{
-				"Title": "Peri Peri 6pc Chicken Strips",
-				"description": "6pc Hot & Crispy Chicken paired with our new Dynamite Spicy Mayo Sauce Bottle",
-				"image": "https://orderserv-kfc-assets.yum.com/15895bb59f7b4bb588ee933f8cd5344a/images/items/xl/D-PR00002093.jpg?ver=22.82",
-				"price": "₹279.05",
-				"offer": 30,
-				"Product_id": "24"
-			},
-			{
-				"Title": "Peri Peri 10 Strips with Dynamite",
-				"description": "10 Spicy Peri Peri chicken strips & our Dynamite Spicy Mayo Sauce Bottle",
-				"image": "https://orderserv-kfc-assets.yum.com/15895bb59f7b4bb588ee933f8cd5344a/images/items/xl/D-PR00002153.jpg?ver=22.82",
-				"price": "639.05",
-				"offer": 14,
-				"Product_id": "25"
-			}
-		];
-		if(false) {
-			for(let productId of productIds) {
-				try {
-					let response = await fetch(`${productsURL}/${productId}`);
-					// for HTTP Error 404 and 500, the fetch do not throw any error, but the response.ok will be "false"
-					if(response.ok) {
-						// showing only those items that are present in the backend even though user has it in the cart or favorites
-						let product = await response.json();
-						products.push(product);
-					}	 
-				} catch(error) {
-					console.log(error);
-				}
+		let products = [];
+		for(let productId of productIds) {
+			try {
+				let response = await fetch(`${productsURL}/${productId}`);
+				// for HTTP Error 404 and 500, the fetch do not throw any error, but the response.ok will be "false"
+				if(response.ok) {
+					// showing only those items that are present in the backend even though user has it in the cart or favorites
+					let product = await response.json();
+					products.push(product);
+				}	 
+			} catch(error) {
+				console.log(error);
 			}
 		}
 		optionContent.innerHTML = `

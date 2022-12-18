@@ -2,7 +2,7 @@
 // (following key has been used to detect user login status)
 // "user" = {
 // 		usernmae: "abc",
-// 		redeemedOffersIds: ["1", "2", "3"];
+// 		redeemedOffers: ["ADD 2 PC HOT N CRISPY CHICKEN"]
 // }
 // "orderSettings" = {
 // 		type: "Delivery",
@@ -24,6 +24,11 @@ const greetingsElement = document.querySelector("#greetings");
 const orderTypeElements = document.querySelectorAll("#order-types > button");
 const redeemElements = document.querySelectorAll(".redeem-button");
 const redeemFeedbackModal = document.querySelector("#redeem-feedback-modal");
+const offers = {
+	"1": "2 PC HOT CHICKEN ZINGER",
+	"2": "2 PC HOT VEG ZINGER",
+	"3": "2 PC CRISPY CHICKEN"
+}
 
 let slideIndex = 0;
 
@@ -60,27 +65,26 @@ orderTypeElements.forEach((item) => item.addEventListener("click", (event) => {
 redeemElements.forEach((item) => item.addEventListener("click", (event) => {
 	let redeemedOfferId = event.target.dataset.offerid;
 	// store the offer
-	let user = JSON.parse(localStorage.getItem("user", "redeemedOffersIds"));
+	let user = JSON.parse(localStorage.getItem("user"));
 	if(user===null) {
 		alert("Please login first to redeem offer");
-		return;
+		return
 		user = {
 			username: "Ananya Pandey",
 			redeemedOffersIds: []
 		};
-	} else if(user.redeemedOffersIds===undefined) {
-		user.redeemedOffersIds = [];
+	} else if(user.redeemedOffers===undefined) {
+		user.redeemedOffers = [];
 	} 
-	user.redeemedOffersIds.push(redeemedOfferId);
+	user.redeemedOffers.push(offers[redeemedOfferId]);
 	// removing duplicates offers
 	console.log(user)
-	let set = new Set(user.redeemedOffersIds);
-	user.redeemedOffersIds = [];
-	for(let offerId of set) {
-		user.redeemedOffersIds.push(offerId);
+	let set = new Set(user.redeemedOffers);
+	user.redeemedOffers = [];
+	for(let offer of set) {
+		user.redeemedOffers.push(offer);
 	}
 	localStorage.setItem("user", JSON.stringify(user));
-	console.log("final");
 	toggleRedeemFeedbackModal();
 }));
 
