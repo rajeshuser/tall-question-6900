@@ -1,19 +1,3 @@
-const user = {
-  f_name: "Albert",
-  l_name: "McKenzie",
-  avatar:
-    "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/546.jpg",
-  password: "password 1",
-  email: "Roy.Wolf89@example.org",
-  username: "Gregoria.Rogahn96",
-  cart: [],
-  Redeem_offer: [],
-  fav_product: [],
-  ordered_product: [],
-  id: "1",
-};
-localStorage.setItem("user", JSON.stringify(user));
-
 const orderSettings = {
   type: "Delivery",
   address: "Delhi",
@@ -37,15 +21,16 @@ function displaycard(arr) {
     let div = document.createElement("div");
     let div2 = document.createElement("div");
     let Div = document.createElement("div");
+    
     let Img = document.createElement("img");
     Img.setAttribute("src", element.image);
     let title = document.createElement("h3");
     title.innerText = element.Title;
     let desc = document.createElement("p");
     desc.innerText = element.description;
-    let off = document.createElement("h5");
-    off.innerText = `${element.offer}%`;
-    let Price = document.createElement("h3");
+    let serv=document.createElement("h3")
+    serv.innerText="Non Veg || can be served 2-3"
+    let Price = document.createElement("h2");
     Price.innerText = element.price;
 
     let Wishlist = document.createElement("img");
@@ -64,7 +49,7 @@ function displaycard(arr) {
     });
 
     div.append(Img, Wishlist);
-    div2.append(title, Price, off, desc, btn);
+    div2.append(title,serv, Price, desc, btn);
     Div.append(div, div2);
     document.querySelector(".menu").append(Div);
   });
@@ -89,11 +74,11 @@ function displaycard1(arr) {
     Img.setAttribute("src", element.image);
     let title = document.createElement("h3");
     title.innerText = element.Title;
+    let serv=document.createElement("h3")
+    serv.innerText="Non Veg || can be served 2-3"
     let desc = document.createElement("p");
     desc.innerText = element.description;
-    let off = document.createElement("h5");
-    off.innerText = `${element.offer}%`;
-    let Price = document.createElement("h3");
+    let Price = document.createElement("h2");
     Price.innerText = element.price;
 
     let Wishlist = document.createElement("img");
@@ -112,7 +97,7 @@ function displaycard1(arr) {
     });
 
     div.append(Img, Wishlist);
-    div2.append(title, Price, off, desc, btn);
+    div2.append(title,serv,Price,desc, btn);
     Div.append(div, div2);
     document.querySelector(".menu1").append(Div);
   });
@@ -137,11 +122,11 @@ function displaycard2(arr) {
     Img.setAttribute("src", element.image);
     let title = document.createElement("h3");
     title.innerText = element.Title;
+    let serv=document.createElement("h3")
+    serv.innerText="Non Veg || can be served 2-3"
     let desc = document.createElement("p");
     desc.innerText = element.description;
-    let off = document.createElement("h5");
-    off.innerText = `${element.offer}%`;
-    let Price = document.createElement("h3");
+    let Price = document.createElement("h2");
     Price.innerText = element.price;
 
     let Wishlist = document.createElement("img");
@@ -160,7 +145,7 @@ function displaycard2(arr) {
     });
 
     div.append(Img, Wishlist);
-    div2.append(title, Price, off, desc, btn);
+    div2.append(title,serv,Price,desc, btn);
     Div.append(div, div2);
     document.querySelector(".menu2").append(Div);
   });
@@ -188,18 +173,23 @@ function search() {
 async function addData(key, productId) {
   // getting user from api
   let user = JSON.parse(localStorage.getItem("user"));
-   // delete this line later
+  console.log(user)
+ // delete this line later
   let url = `https://639883a4fe03352a94d3d897.mockapi.io/product/kpc_user/${user.id}`;
   let res = await fetch(url);
+  user= await res.json()
   user.cart.push(productId);
-
+   user.cart=removeDuplicates(user.cart)
+   console.log(user.cart,"after remove duplicates")
   // updating cart of the user
   let res2 = await fetch(url, {
     method: "PUT", // It should be "PATCH"
     headers: {
       "content-type": "application/json",
     },
-    body: JSON.stringify(user),
+    body: JSON.stringify({
+      "cart":user.cart
+    }),
   });
 
   // updated successfully
@@ -213,8 +203,9 @@ async function addDatatoWishlist(key, productId) {
   
   let url = `https://639883a4fe03352a94d3d897.mockapi.io/product/kpc_user/${user.id}`;
   let res = await fetch(url);
+  user= await res.json()
   user.fav_product.push(productId) ;
-
+  user.fav_product=removeDuplicates(user.fav_product)
   let res3 = await fetch(url, {
     method: "PUT",
     headers: {
@@ -226,4 +217,17 @@ async function addDatatoWishlist(key, productId) {
   if (res3.ok) {
     alert("Product added to the fav_product on the api");
   }
+}
+
+
+///remove duplicate items//
+
+function removeDuplicates(arr){
+  let set= new Set(arr)
+  console.log(set)
+ arr=[]
+  for(let id of set){
+    arr.push(id)
+  }
+  return arr
 }
