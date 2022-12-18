@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 const rootFolder = "C:/Users/RanjanKr/Desktop/123456/tall-question-6900"
+=======
+const rootFolder = "C:/Users/chowd/OneDrive/Desktop/tall-question-6900"
+>>>>>>> d0781677ef8e758898971c77eb541bcf0974b4fc
 const navBarElement = document.querySelector("#nav-bar");
 const orderSettingBarElement = document.querySelector("#order-settings1");
 const orderSettingsModal =document.querySelector("#order-settings-modal");
@@ -38,7 +42,7 @@ orderSettingsModal.innerHTML = `
 			<label for="delivery-address">Delivery address</label>
 			<input type="text" id="delivery-address" name="deliveryAddress">
 			<label for="delivery-time">Delivery time</label>
-			<input type="date" id="delivery-time" name="deliveryTime">
+			<input type="time" id="delivery-time" name="deliveryTime">
 			<input type="submit" value="Confirm">
 		</form>
 	</div>

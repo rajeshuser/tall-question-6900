@@ -32,6 +32,15 @@
 }
 #buyButton {
 	display: block;
+	background-color: gold;
+	border: 0;
+	border-radius: 100px;
+	padding: 10px 15px;
+	font-size: larger;
+}
+#buyButton:hover {
+	background-color: yellow;
+	border: 1px solid black;
 }
 
 
@@ -63,7 +72,7 @@
 	padding: 15px 20px;
 } 
 .productTitle {
-	height: 35px;
+	height: 50px;
 }
 .productQuantity {
 	font-size: large;
@@ -103,7 +112,15 @@
 .remove {
 	display: block;
 	margin: auto;
-	margin-top: 10px;
+	margin-top: 20px;
+	padding: 10px 30px;
+	color: white;
+	border: 0;
+	border-radius: 100px;
+	background-color: rgb(253, 69, 69);
+}
+.remove:hover {
+	background-color: red;
 }
 
 

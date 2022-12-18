@@ -18,10 +18,11 @@ async function product() {
     }
 }
 function pagination_button(count) {
-    fetch(procucturl + `?p=1&l=10`)
+	let limit = 12;
+    fetch(procucturl + `?p=1&l=${limit}`)
         .then(res => res.json())
         .then(data => renderdom(data));
-    let totalNumberOfButtons = Math.ceil(count / 10);
+    let totalNumberOfButtons = Math.ceil(count / limit);
     console.log(count)
     function asListOfButtons() {
         let arr = [];
