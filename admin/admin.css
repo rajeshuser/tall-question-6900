@@ -177,9 +177,10 @@
 margin: auto;
 margin-left: 10px;
 margin-bottom: 10px; 
-width: 60px;
-height: 30px;
+width: 100px;
+height: 40px;
 border-radius: 10px;
+border-color: red;
 
 }
 #pagination>div>button:hover{
