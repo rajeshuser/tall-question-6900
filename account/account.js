@@ -1,7 +1,12 @@
 class loginClass {
     // this class handles all the things when user is not logged in
 
+	toggleAdminButton(boolean=false) {
+		document.querySelector("#adminAnchor").classList.toggle("adminAnchor", boolean);
+	}
+
     loadEmailForm() {
+		this.toggleAdminButton(false);
         main.innerHTML = `
 			<form id="emailForm">
 				<label for="email"> Enter your email address </label>
@@ -29,6 +34,7 @@ class loginClass {
     }
 
     loadPasswordForm() {
+		this.toggleAdminButton(true);
         // here the "localStorage" will have the user stored under the key "user"
         main.innerHTML = `
 			<form id="passwordForm">
@@ -71,6 +77,7 @@ class loginClass {
     }
 
     loadCreateAccountForm() {
+		this.toggleAdminButton(false);
         main.innerHTML = `
 			<form id="createAccountForm">
 				<h2> Create account </h2>
@@ -199,6 +206,12 @@ class accountInfoClass {
 			} catch(error) {
 				console.log(error);
 			}
+		}
+		if(products.length==0) {
+			optionContent.innerHTML = `
+				<h2 style="width:100%;margin: 15% auto;text-align:center">Oh ohh! Nothing is here</h2>
+			`;
+			return;
 		}
 		optionContent.innerHTML = `
 			<div id="productsGrid">

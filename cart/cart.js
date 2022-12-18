@@ -5,13 +5,14 @@ const main = document.querySelector("#main");
 const checkoutModal = document.querySelector("#checkoutModal");
 const checkoutModalContent = document.querySelector("#checkoutModalContent");
 const userFromLocalStoarge = JSON.parse(localStorage.getItem("user"));
-let userURL = `https://639883a4fe03352a94d3d897.mockapi.io/product/kpc_user/${userFromLocalStoarge.id}`;
-const quantities = {};
+let userURL = null;
+let quantities = {};
 let cartProducts = [];
 
 if (userFromLocalStoarge === null) {
     loadCartEmptyMessage();
 } else {
+	userURL = `https://639883a4fe03352a94d3d897.mockapi.io/product/kpc_user/${userFromLocalStoarge.id}`
     loadCartDetails();
 }
 
@@ -135,7 +136,14 @@ function toggleCheckoutModal() {
 			<tr>
 				<td> Offers </td>
 				<td> 
-					${JSON.parse(localStorage.getItem("user")).redeemedOffers[0] || "No offers redeemed"}
+					${(function(){
+						let redeemedOffers = JSON.parse(localStorage.getItem("user")).redeemedOffers;
+						if(redeemedOffers===undefined) {
+							return "No offers redeemed";
+						} else {
+							return redeemedOffers[0];
+						}
+					})()}
 				</td>
 			</tr>
 		</table>
@@ -258,7 +266,7 @@ function getProductHTML(product) {
 				<h2 class="productTitle">${product.Title}</h2>
 				<p>Can serve upto 2-3</p>
 				<h2>Rs. ${product.price}</h2>
-				<p>${product.description}</p>
+				<p class="productDescription">${product.description.substring(1,50)}</p>
 				<div class="productQuantity">
 					Qty:
 					<span class="quantity" data-id=${product.Product_id}> 1 </span>
