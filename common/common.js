@@ -38,7 +38,7 @@ orderSettingsModal.innerHTML = `
 			<label for="delivery-address">Delivery address</label>
 			<input type="text" id="delivery-address" name="deliveryAddress">
 			<label for="delivery-time">Delivery time</label>
-			<input type="date" id="delivery-time" name="deliveryTime">
+			<input type="time" id="delivery-time" name="deliveryTime">
 			<input type="submit" value="Confirm">
 		</form>
 	</div>
