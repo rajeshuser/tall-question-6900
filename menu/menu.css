@@ -115,6 +115,10 @@ width: 15%;
     width:75%;
 	margin-top: 100px;
 }
+#main-body ul{
+	position:fixed;
+	top:130px;
+}
 #main-body ul>h2{
 	font-size: 40px;
 	font-weight:700;
@@ -144,7 +148,7 @@ hr{
 
   /* ..................menu part................ */
 p{
-	font-size: 12px;
+	font-size: 15px;
 }
 h3{
 	font-size: 15px;
@@ -153,6 +157,9 @@ h3{
 	display: grid;
 	grid-template-columns: repeat(3,1fr);
 	grid-template-rows: auto;
+  }
+  .menu p,.menu1 p,.menu2 p{
+	height: 80px;
   }
   .menu>div,.menu1>div{
 	margin: 5px;
