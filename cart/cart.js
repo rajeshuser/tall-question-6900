@@ -110,72 +110,73 @@ function addEventListenerToButtons() {
     }
 }
 
-function toggleCheckoutModal() {
-	let isCheckoutModalOpen = checkoutModal.classList.toggle("toggleCheckoutModal");
-	console.log(isCheckoutModalOpen)
-	if(isCheckoutModalOpen===false) {
-		return;
+	function toggleCheckoutModal() {
+		console.log("heelo")
+		let isCheckoutModalOpen = checkoutModal.classList.toggle("toggleCheckoutModal");
+		console.log(isCheckoutModalOpen)
+		if(isCheckoutModalOpen===false) {
+			return;
+		}
+		checkoutModalContent.innerHTML = `
+			<h1>Order details</h1>
+			<h3>Order summary</h3>
+			<table id="orderSummary">
+				<tr>
+					<td> Total bill </td>
+					<td id="totalBill"> ${getCartBill()} <td>
+				</tr>
+				<tr>
+					<td> GST (18%) </td>
+					<td id="gst"> ${0.18 * getCartBill()} <td>
+				</tr>
+				<tr>
+					<td> Gross total </td>
+					<td id="grossTotal"> ${1.18 * getCartBill()} <td>
+				</tr>
+				<tr>
+					<td> Offers </td>
+					<td> 
+						${JSON.parse(localStorage.getItem("user")).redeemedOffers[0] || "No offers redeemed"}
+					</td>
+				</tr>
+			</table>
+			<h3>Delivery address</h3>
+			<p>${
+				JSON.parse(localStorage.getItem("orderSettings")).address 
+				|| JSON.parse(localStorage.getItem("user")).address 
+			}</p>
+			<h3>Card details</h3>
+			<form id="paymentForm">
+				<label>Card Holder Name<input type="text" id="cardHolderName" required></label>
+				<label>Card Number<input type="number" id="cardNumber" required></label>
+				<label>Expiry Date<input type="month" id="expiryDate" required></label>
+				<label>CVV Number<input type="number" id="cvvNumber" required></label>
+				<label><input type="submit" value="Make payment"></label>
+			</form>
+		`;
+		let paymentForm = document.querySelector("#paymentForm");
+		paymentForm.addEventListener("submit", handlePaymentForm);
 	}
-	checkoutModalContent.innerHTML = `
-		<h1>Order details</h1>
-		<h3>Order summary</h3>
-		<table id="orderSummary">
-			<tr>
-				<td> Total bill </td>
-				<td id="totalBill"> ${getCartBill()} <td>
-			</tr>
-			<tr>
-				<td> GST (18%) </td>
-				<td id="gst"> ${0.18 * getCartBill()} <td>
-			</tr>
-			<tr>
-				<td> Gross total </td>
-				<td id="grossTotal"> ${1.18 * getCartBill()} <td>
-			</tr>
-			<tr>
-				<td> Offers </td>
-				<td> 
-					${JSON.parse(localStorage.getItem("user")).redeemedOffers[0] || "No offers redeemed"}
-				</td>
-			</tr>
-		</table>
-		<h3>Delivery address</h3>
-		<p>${
-			JSON.parse(localStorage.getItem("orderSettings")).address 
-			|| JSON.parse(localStorage.getItem("user")).address 
-		}</p>
-		<h3>Card details</h3>
-		<form id="paymentForm">
-			<label>Card Holder Name<input type="text" id="cardHolderName" required></label>
-			<label>Card Number<input type="number" id="cardNumber" required></label>
-			<label>Expiry Date<input type="month" id="expiryDate" required></label>
-			<label>CVV Number<input type="number" id="cvvNumber" required></label>
-			<label><input type="submit" value="Make payment"></label>
-		</form>
-	`;
-	let paymentForm = document.querySelector("#paymentForm");
-	paymentForm.addEventListener("submit", handlePaymentForm);
-}
 
-function handlePaymentForm(event) {
-	event.preventDefault();
-	let form = event.target;
-	let card = {
-		cardHolderName: document.querySelector("#cardHolderName").value,
-		cardNumber: document.querySelector("#cardNumber").value,
-		expiryDate: document.querySelector("#expiryDate").value,
-		cvvNumber: document.querySelector("#cvvNumber").value,
+	function handlePaymentForm(event) {
+		event.preventDefault();
+		let form = event.target;
+		let card = {
+			cardHolderName: document.querySelector("#cardHolderName").value,
+			cardNumber: document.querySelector("#cardNumber").value,
+			expiryDate: document.querySelector("#expiryDate").value,
+			cvvNumber: document.querySelector("#cvvNumber").value,
+		}
+		if(card.cardNumber.length!=12) {
+			alert("Card number should be 12 digits");
+			return;
+		}
+		if(card.cvvNumber.length!=3) {
+			alert("CVV number should be 3 digits");
+			return;
+		}
+		moveProductIdsFromCartToOrdered();
 	}
-	if(card.cardNumber.length!=12) {
-		alert("Card number should be 12 digits");
-		return;
-	}
-	if(card.cvvNumber.length!=3) {
-		alert("CVV number should be 3 digits");
-		return;
-	}
-	moveProductIdsFromCartToOrdered();
-}
 
 async function moveProductIdsFromCartToOrdered() {
 	try {

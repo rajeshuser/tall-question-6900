@@ -1,4 +1,4 @@
-const rootFolder = "C:/Users/Rajesh/Desktop/tall-question-6900"
+const rootFolder = "C:/Users/jains/Desktop/html/tall-question-6900"
 const navBarElement = document.querySelector("#nav-bar");
 const orderSettingBarElement = document.querySelector("#order-settings1");
 const orderSettingsModal =document.querySelector("#order-settings-modal");

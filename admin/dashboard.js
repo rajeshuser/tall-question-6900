@@ -92,7 +92,6 @@ function user_data(data){
 			<p>${ele.cart}</p>
 			<p>${ele.fav_product}</p>
 			<p>${ele.ordered_product}</p>
->>>>>>> 401bc27f908e19b9520fdf798ddf5690ab0c2969
             <button id="${ele.id}" class="delete">Delete</button>
             <button id="${ele.id}" class="edit">Give Offers</button>
 		</div>
